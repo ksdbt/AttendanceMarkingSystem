@@ -1,0 +1,38 @@
+Angular 20 Frontend Setup (Standalone + Material)
+
+1) Prereqs
+   - Node 18+
+   - npm 9+
+   - Angular CLI: npm i -g @angular/cli
+
+2) Create project
+   ng new attendance-frontend --standalone --routing --style=css
+   cd attendance-frontend
+
+3) Install dependencies
+   ng add @angular/material
+
+4) main.ts: ensure provideHttpClient is added
+   import { bootstrapApplication } from '@angular/platform-browser';
+   import { AppComponent } from './app/app.component';
+   import { appConfig } from './app/app.config';
+   import { provideHttpClient, withInterceptors } from '@angular/common/http';
+   import { authInterceptor } from './app/core/auth.interceptor';
+
+   bootstrapApplication(AppComponent, {
+     providers: [
+       ...appConfig.providers,
+       provideHttpClient(withInterceptors([authInterceptor]))
+     ]
+   });
+
+5) Create folders:
+   src/app/core
+   src/app/services
+   src/app/auth
+   src/app/attendance
+   src/app/admin
+   src/app/profile
+
+6) Add files listed below into src/app/ (... see next files in repo)
+
