@@ -1,0 +1,8 @@
+<mat-card *ngIf="me">
+  <h2>Profile</h2>
+  <p><b>Name:</b> {{ me.fullName }}</p>
+  <p><b>Email:</b> {{ me.email }}</p>
+  <p><b>Role:</b> {{ me.role }}</p>
+  <p><a routerLink="/mark">Back</a></p>
+</mat-card>
+
